@@ -1,0 +1,22 @@
+#!/bin/bash
+
+subjectlist=HCP_female_unrelated.txt
+
+while read -r subject;
+do
+    mkdir -p hcp/$subject
+    mkdir -p hcp/$subject/T1w
+    mkdir -p hcp/$subject/T1w/Diffusion
+
+    aws s3 cp \
+        s3://hcp-openaccess/HCP_1200/$subject/T1w/T1w_acpc_dc_restore_brain.nii.gz \
+        hcp/$subject/T1w \
+        --region us-east1
+
+    aws s3 cp \
+        s3://hcp-openaccess/HCP/$subject/T1w/Diffusion \
+        hcp/$subject/T1w/Diffusion \
+        --recursive \
+        --region us-east-1
+
+                            

@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#RPCC
+echo "8 -56 26" | 3dUndump -orient LPI -srad 6 -master 201111fmri+tlrc -prefix RPCC201111 -xyz -
+3dmaskave -quiet -mask RPCC201111+tlrc 201111fmri+tlrc > ./RPCC_out.txt
+
+#LPCC
+echo "-8 -56 26" | 3dUndump -orient LPI -srad 6 -master 201111fmri+tlrc -prefix LPCC201111 -xyz -
+3dmaskave -quiet -mask LPCC201111+tlrc 201111fmri+tlrc > ./LPCC_out.txt
+
+#RMPFC
+echo "6 52 -2" | 3dUndump -orient LPI -srad 6 -master 201111fmri+tlrc -prefix RMPFC201111 -xyz -
+3dmaskave -quiet -mask RMPFC201111+tlrc 201111fmri+tlrc > ./RMPFC_out.txt
+
+#LMPFC
+echo "-6 52 -2" | 3dUndump -orient LPI -srad 6 -master 201111fmri+tlrc -prefix LMPFC201111 -xyz -
+3dmaskave -quiet -mask LMPFC201111+tlrc 201111fmri+tlrc > ./LMPFC_out.txt
+
+#RDLPFC
+echo "43 21 38" | 3dUndump -orient LPI -srad 6 -master 201111fmri+tlrc -prefix RDLPFC201111 -xyz -
+3dmaskave -quiet -mask RDLPFC201111+tlrc 201111fmri+tlrc > ./RDLPFC_out.txt
+
+#LDLPFC
+echo "-43 21 38" | 3dUndump -orient LPI -srad 6 -master 201111fmri+tlrc -prefix LDLPFC201111 -xyz -
+3dmaskave -quiet -mask LDLPFC201111+tlrc 201111fmri+tlrc > ./LDLPFC_out.txt
